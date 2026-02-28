@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Suvai Admin</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h2>➕ Add Recipe</h2>
+
+<input id="name" placeholder="Recipe Name"><br><br>
+<input id="cuisine" placeholder="Cuisine"><br><br>
+<input id="image" placeholder="Image path (images/xyz.jpg)"><br><br>
+<textarea id="ingredients" placeholder="Ingredients (comma separated)"></textarea><br><br>
+
+<button onclick="addRecipe()">Add</button>
+
+<script>
+function addRecipe(){
+  const recipe = {
+    name: name.value.trim(),
+    cuisine: cuisine.value.trim(),
+    image: image.value.trim(),
+    ingredients: ingredients.value.split(",").map(i=>i.trim())
+  };
+  const saved = JSON.parse(localStorage.getItem("recipes")) || [];
+  saved.push(recipe);
+  localStorage.setItem("recipes", JSON.stringify(saved));
+  alert("Added!");
+}
+</script>
+
+</body>
+</html>

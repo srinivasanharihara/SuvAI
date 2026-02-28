@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Recipe</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<a href="index.html">⬅ Back</a>
+<div id="details"></div>
+
+<script src="data.js"></script>
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const name = decodeURIComponent(params.get("name") || "").toLowerCase();
+
+  const recipe = recipes.find(r =>
+    r.name.toLowerCase() === name
+  );
+
+  const details = document.getElementById("details");
+
+  if (!recipe) {
+    details.innerHTML = "<p>Recipe not found</p>";
+  } else {
+    details.innerHTML = `
+      <h2>${recipe.name}</h2>
+      <img src="${recipe.image}" class="detail-img">
+      <h3>Ingredients</h3>
+      <ul>
+        ${recipe.ingredients.map(i => `<li>${i}</li>`).join("")}
+      </ul>
+    `;
+  }
+</script>
+
+</body>
+</html>

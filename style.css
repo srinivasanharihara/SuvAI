@@ -1,0 +1,62 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #fff8f0;
+}
+
+.header {
+  background: #ff7043;
+  padding: 15px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+}
+
+input {
+  padding: 8px;
+  border-radius: 6px;
+  border: none;
+}
+
+#recipe-list {
+  padding: 15px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 15px;
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  cursor: pointer;
+}
+
+.card img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.detail-img {
+  width: 100%;
+  max-width: 350px;
+  border-radius: 12px;
+}
+.card{
+  transition: transform .3s, box-shadow .3s;
+}
+.card:hover{
+  transform: translateY(-6px);
+  box-shadow: 0 10px 20px rgba(0,0,0,.2);
+}
+.card:active{
+  transform: scale(.97);
+}
+
+body.dark{
+  background:#121212;
+  color:#fff;
+}
+body.dark .header{background:#1e1e1e;}
+body.dark .card{background:#1f1f1f;}
